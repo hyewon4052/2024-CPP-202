@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="grammer\연습예제.cpp">
+    <ClCompile Include="grammer\02-01 기본예제.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
