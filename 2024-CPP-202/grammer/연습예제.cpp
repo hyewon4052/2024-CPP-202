@@ -1,7 +1,7 @@
-#include <stdio.h>
+О╩©#include <stdio.h>
 
 int main() {
-	// аж╪╝ев╫╨ф╝
-	printf("╬хЁГ ╪╪╩С╬ф \n");
+	// Лё╪Л└²М┘▄Л┼╓М┼╦
+	printf("Л∙┬К┘∙ Л└╦Л┐│Л∙└ \n");
 	return 0;
 }
