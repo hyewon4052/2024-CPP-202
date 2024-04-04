@@ -1,4 +1,4 @@
-﻿#include <iostream>
+﻿#include <iostream> 
 
 // 배열의 모든 요소를 0으로 바꿔준다.
 void erase(int* ptr,int length) {	
@@ -6,7 +6,6 @@ void erase(int* ptr,int length) {
 	for (int i = 0; i <= length; i++) {
 		ptr[i] = 0;
 	}
-
 }
 
 int main(void) {
