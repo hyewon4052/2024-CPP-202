@@ -14,10 +14,8 @@ public:
         name_ = "swag";
     }
 
-    Student(int hakbun, string name)
+    Student(int hakbun, string name) : hakbun_(hakbun), name_(name)
     {
-        hakbun_ = hakbun;
-        name_ = name;
     }
 
     // 클래스의 멤버를 출력
