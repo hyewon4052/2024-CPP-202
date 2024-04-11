@@ -8,7 +8,9 @@ public:
     // 생성자는 반환형이 없다.
     Student()
     {
-        hakbun_ = 2211;
+        // this : 자기자신을 가리키는 포인터
+        // 멤버를 명확하게 가리킬 수 있다.
+        this->hakbun_ = 2211;
         name_ = "swag";
     }
 
