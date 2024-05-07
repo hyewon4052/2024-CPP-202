@@ -18,9 +18,12 @@ public:
     }
 
     // 복사생성자 (얕은 복사)
-    Student(const Student& rhs) : hakbun_(rhs.hakbun_), name_(rhs.name_)
+    Student(const Student& rhs) : hakbun_(rhs.hakbun_)
     {
         cout << "복사생성자 호출 완료" << endl;
+        int len = strlen(rhs.name_) + 1;
+        name_ = new char[len];
+        strcpy(name_, rhs.name_);
     }
 
     // 소멸자 : 객체가 소멸될 때 (메모리에서 지워질 때)
@@ -48,8 +51,9 @@ int main(void)
 {
     // 일반적인 생성자
     Student stu = Student(2213, "JSB");
+    
     // 복사생성자
-    Student stu2 = stu;
+    Student stu2 = Student(stu);
 
     // TODO: 얕은 복사로 인하여 같은 주소(stu.name_, stu2.name_)에서 두 번 delete 시도
 
