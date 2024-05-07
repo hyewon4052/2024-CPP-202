@@ -6,7 +6,7 @@ class Student {
 public:
 
 
-    Student(int hakbun, char* name) : hakbun_(hakbun)
+    Student(int hakbun, const char* name) : hakbun_(hakbun)
     {
 
         int length = strlen(name);
@@ -17,9 +17,16 @@ public:
         cout << "생성자 호출 완료" << endl;
     }
 
+    // 복사생성자 (얕은 복사)
+    Student(const Student& rhs) : hakbun_(rhs.hakbun_), name_(rhs.name_)
+    {
+        cout << "복사생성자 호출 완료" << endl;
+    }
+
     // 소멸자 : 객체가 소멸될 때 (메모리에서 지워질 때)
     ~Student(void)
     {
+        // TODO : 얕은 복사로 인하여 이미 제거된 공간을 또 제거하려고 해서 에러 발생
         delete []name_;
         cout << "소멸자 호출 완료" << endl;
     }
@@ -39,10 +46,12 @@ private:
 
 int main(void)
 {
-    Student* stu = new Student(2213, (char*)"조수빈");
-    cout << "나는 아직도 배가 고프다 - 거스 히딩크" << endl;
+    // 일반적인 생성자
+    Student stu = Student(2213, "JSB");
+    // 복사생성자
+    Student stu2 = stu;
 
-    delete stu;
-    cout << "It ain't over, till it's over - 요기배라" << endl;
+    // TODO: 얕은 복사로 인하여 같은 주소(stu.name_, stu2.name_)에서 두 번 delete 시도
+
     return 0;
 }
