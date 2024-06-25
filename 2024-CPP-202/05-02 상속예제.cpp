@@ -13,6 +13,7 @@ public:
         cout << "Stdio " << l_stdio_ << endl;
     }
 
+    
 
 private:
     bool g_pointer_;
@@ -28,11 +29,20 @@ public:
     void print_show()
     {
         C::print_show();
+
         cout << "클래스 " << g_class_ << endl;
         cout << "상속 " << g_inheritance_ << endl;
         cout << "참조 " << g_reference_ << endl;
     }
+    int* dynamic_allcation_int() {
+        int* ptr = (int*)malloc(sizeof(int));
+        return ptr;
+    }
 
+    void free_dynamic_allocation_int(int* ptr) {
+        delete ptr;
+
+    }
 
 private:
     bool g_class_;

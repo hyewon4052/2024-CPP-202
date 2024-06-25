@@ -17,7 +17,7 @@ public:
     // Getter 함수들
     string getName() const { return name; }
     int getAge() const { return age; }
-};
+};ㅇ
 
 class Dog : public Animal {
 public:
