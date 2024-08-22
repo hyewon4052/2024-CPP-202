@@ -31,9 +31,9 @@ public:
 		cout << "충성도" << endl;
 	}
 	// C++은 디폴트가 정적바인딩이기 때문에 가상함수로 오버라이딩 해야 한다.
-	void bark() { cout << "울프울프" << endl; }
-	void eat() { cout << "왕~왕~" << endl; }
-	void walk() { cout << "촵촵촵촵" << endl; }
+	void bark() override { cout << "울프울프" << endl; }
+	void eat()override { cout << "왕~왕~" << endl; }
+	void walk()override { cout << "촵촵촵촵" << endl; }
 private:
 	int loyalty_;
 };
