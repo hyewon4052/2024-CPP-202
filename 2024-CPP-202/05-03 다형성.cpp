@@ -50,5 +50,6 @@ private:
 void main(void) {
 
 	Animal* animal = new Dog("마루", 5, 2, 100);
+	// 정적바인딩으로 인해 DOg소멸자는 호출이 안됨
 	delete animal;
 }
