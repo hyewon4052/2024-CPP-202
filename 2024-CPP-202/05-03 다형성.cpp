@@ -13,6 +13,10 @@ public :
 		cout << "다리갯수 : " << leg_num_ << endl;
 	}
 
+	~Animal() {
+		cout << "Animal 소멸자" << endl;
+	}
+
 	virtual void walk(void) { cout << "걷다" << endl; }
 	virtual void bark(void) { cout << "짖다" << endl; }
 	virtual void eat(void) { cout << "먹다" << endl; }
@@ -30,6 +34,11 @@ public:
 	{
 		cout << "충성도" << endl;
 	}
+
+	~Dog() {
+		cout << "Dog 소멸자" << endl;
+	}
+
 	// C++은 디폴트가 정적바인딩이기 때문에 가상함수로 오버라이딩 해야 한다.
 	void bark() override { cout << "울프울프" << endl; }
 	void eat()override { cout << "왕~왕~" << endl; }
@@ -39,15 +48,7 @@ private:
 };
 
 void main(void) {
-	Animal* animal = new Animal("추트레인",8,2);
-	animal->bark();
-	animal->eat();
-	animal->walk();
-	delete animal;
 
-	animal = new Dog("마루", 5, 2, 100);
-	animal->bark();
-	animal->eat();
-	animal->walk();
+	Animal* animal = new Dog("마루", 5, 2, 100);
 	delete animal;
 }
