@@ -13,7 +13,7 @@ public :
 		cout << "다리갯수 : " << leg_num_ << endl;
 	}
 
-	~Animal() {
+	virtual ~Animal() {
 		cout << "Animal 소멸자" << endl;
 	}
 
@@ -35,7 +35,7 @@ public:
 		cout << "충성도" << endl;
 	}
 
-	~Dog() {
+	virtual ~Dog() {
 		cout << "Dog 소멸자" << endl;
 	}
 
@@ -51,5 +51,6 @@ void main(void) {
 
 	Animal* animal = new Dog("마루", 5, 2, 100);
 	// 정적바인딩으로 인해 DOg소멸자는 호출이 안됨
+	// 소멸자 앞에 virtual을 쓰는 이유는 동적바인딩을 하기 위해. -> 메모리 누수 방지
 	delete animal;
 }
