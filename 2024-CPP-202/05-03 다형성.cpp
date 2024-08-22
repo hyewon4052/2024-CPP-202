@@ -1,59 +1,66 @@
 #include <iostream>
-#include <string.h>
-using namespace std;
+#include <string>
 
-class C {
-public:
-    C(bool g_pointer, bool g_structrue, bool l_stdio) : g_pointer_(g_pointer), g_structure_(g_structrue), l_stdio_(l_stdio) { }
+using namespace std; 
 
-    void print_show()
-    {
-        cout << "포인터 " << g_pointer_ << endl;
-        cout << "구조체 " << g_structure_ << endl;
-        cout << "Stdio " << l_stdio_ << endl;
-    }
 
-    
+class Animal {
+public : 
+	Animal(string name, unsigned int age, int leg_num) 
+		: name_(name), age_(age), leg_num_(leg_num) {
+		cout << "이름 : " << name << endl;
+		cout << "나이 : " << age << endl;
+		cout << "다리갯수 : " << leg_num << endl;
+	}
 
-private:
-    bool g_pointer_;
-    bool g_structure_;
-    bool l_stdio_;
+	void walk(void) {
+		cout << "걷다" << endl;
+	}
+	void bark(void) {
+		cout << "짖다" << endl;
+	}
+	void eat(void) {
+		cout << "먹다" << endl;
 
+	}
+
+private :
+	string name_;
+	unsigned int age_;
+	int leg_num_;
 };
 
-class Cpp : public C {
+class Dog : public Animal {
 public:
-    Cpp(bool g_pointer, bool g_structrue, bool l_stdio, bool g_class, bool g_inheritance, bool g_reference)
-        : C(g_pointer, g_structrue, l_stdio), g_class_(g_class), g_inheritance_(g_inheritance), g_reference_(g_reference) { }
-    void print_show()
-    {
-        C::print_show();
-
-        cout << "클래스 " << g_class_ << endl;
-        cout << "상속 " << g_inheritance_ << endl;
-        cout << "참조 " << g_reference_ << endl;
-    }
-    int* dynamic_allcation_int() {
-        int* ptr = (int*)malloc(sizeof(int));
-        return ptr;
-    }
-
-    void free_dynamic_allocation_int(int* ptr) {
-        delete ptr;
-
-    }
-
+	Dog(string name, unsigned int age, int leg_num, int loyalty) 
+		:Animal(name, age, leg_num), loyalty_(loyalty) 
+	{
+		cout << "충성도" << endl;
+	}
+	// C++은 디폴트가 정적바인딩이기 때문에 가상함수로 오버라이딩 해야 한다.
+	void bark() {
+		cout << "울프울프" << endl;
+	}
+	void eat() {
+		cout << "왕~왕~" << endl;
+	}
+	void walk() {
+		cout << "촵촵촵촵" << endl;
+	}
 private:
-    bool g_class_;
-    bool g_inheritance_;
-    bool g_reference_;
-
+	int loyalty_;
 };
 
-int main(void) {
-    Cpp* cpp = new Cpp(true, true, true, true, true, true);
-    cpp->print_show();
+void main(void) {
+	Animal* animal = new Animal("추트레인",8,2);
+	animal->bark();
+	animal->eat();
+	animal->walk();
+	delete animal;
 
-    return 0;
+	animal = new Dog("마루", 5, 2, 100);
+	delete animal;
+	animal->bark();
+	animal->eat();
+	animal->walk();
 }
