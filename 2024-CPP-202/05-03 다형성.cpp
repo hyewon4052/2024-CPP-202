@@ -16,10 +16,11 @@ public :
 	virtual ~Animal() {
 		cout << "Animal 소멸자" << endl;
 	}
-
-	virtual void walk(void) { cout << "걷다" << endl; }
-	virtual void bark(void) { cout << "짖다" << endl; }
-	virtual void eat(void) { cout << "먹다" << endl; }
+	
+	// 순수 가상 함수 추상메서드
+	virtual void walk(void) = 0;
+	virtual void bark(void) = 0;
+	virtual void eat(void) = 0;
 
 private :
 	string name_;
@@ -50,6 +51,7 @@ private:
 void main(void) {
 
 	Animal* animal = new Dog("마루", 5, 2, 100);
+	animal->bark();
 	// 정적바인딩으로 인해 DOg소멸자는 호출이 안됨
 	// 소멸자 앞에 virtual을 쓰는 이유는 동적바인딩을 하기 위해. -> 메모리 누수 방지
 	delete animal;
