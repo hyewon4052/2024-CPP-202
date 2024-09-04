@@ -17,6 +17,10 @@ public :
 		cout << "이름 : " << name_ << endl;
 		cout << "면적 : " << territory_ << endl;
 	}
+
+	void attack(Food* target) {
+		target->force_ -= force_;e
+	}
 private:
 	int civill_;	// 국민 수 
 	int force_;	// 군력
@@ -102,6 +106,7 @@ int main(void) {
 		case 1:
 			// TODO : 공격
 			cout << "공격" << endl;
+			player
 			break;
 		case 2:
 			// TODO : 특수1
