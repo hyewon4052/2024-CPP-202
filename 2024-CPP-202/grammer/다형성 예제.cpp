@@ -32,7 +32,9 @@ class Kimchi : public Food {
 public:
 	Kimchi(int civil, int force, string name, int territory, int garlic, int pepper)
 		: Food(civil, force, name, territory), garlic_(garlic), pepper_(pepper)
-	{}
+	{
+		ca_ = 0;
+	}
 
 	void show()
 	{
