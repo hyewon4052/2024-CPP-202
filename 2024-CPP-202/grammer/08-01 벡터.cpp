@@ -1,28 +1,44 @@
 ﻿#include <iostream>
-#include <map>
+#include <vector>
 
 using namespace std;
 
 void main(void) {
+	vector<long long> v;
 
-	map<string, long long> money;
-	// 미리 공간을 많이 확보하자 성능을 위해
-	
-	// 맵 추가
-	money["지수"] = 10000000;
-	money["수빈"] = 30000000;
-	money["민선"] = 100;
+	// 벡터 추가
+	v.push_back(4);
+	v.push_back(6);
+	v.push_back(4567);
+	v.push_back(632);
+	v.push_back(225);
+	v.push_back(4616164515);
 
-	// 반복자
-	map<string, long long>::iterator iter;
-	for (iter = money.begin(); iter != money.end(); iter++) {
-		cout << iter->first << "는 " << iter->second << endl;
-	}
-	
+	/// 값 접근
+	cout << v[0] << endl;
+	cout << v.at(1) << endl;
+
 	// 값 수정
-	money["민선"] = 1000000000;
-	cout << money["민선"] << endl;
+	cout << v[5] << endl;
+	v[5] = 500000000;
+	cout << v[5] << endl;
+
+	cout << endl;
 
 	// 크기
-	cout << money.size() << endl;
+	for (int i = 0; i < v.size(); i++) {
+		cout << v[i] << endl;
+	}
+
+	// 끝의 값 제거
+	v.pop_back();
+	v.pop_back();
+
+	cout << endl;
+
+	// 반복자 (iterator)
+	vector<long long>::iterator iter;
+	for (iter = v.begin(); iter != v.end(); iter++) {
+		cout << *iter << endl;
+	}
 }
