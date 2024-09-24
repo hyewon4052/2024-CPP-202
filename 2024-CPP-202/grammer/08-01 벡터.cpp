@@ -21,6 +21,7 @@ void main(void) {
 	
 	// 값 수정
 	money["민선"] = 1000000000;
+	cout << money["민선"] << endl;
 
 	// 크기
 	cout << money.size() << endl;
