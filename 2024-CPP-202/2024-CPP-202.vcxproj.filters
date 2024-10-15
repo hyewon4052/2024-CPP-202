@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="grammer\08-02 맵.cpp">
+    <ClCompile Include="grammer\09-04 static.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
