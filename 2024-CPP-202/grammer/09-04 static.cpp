@@ -10,7 +10,10 @@ public:
 
 	}
 	static string get_teacher(void) { return teacher_; }
-	static int get_num(void) { return num_; }
+	static int get_num(void) {
+		// name_ = "유비빔";	 // static 멤버함수안에는 일반 멤버변수가 들어가선 안된다. 
+		return num_;	
+	}	
 	string get_name(void) { return name_; }
 	
 private:
